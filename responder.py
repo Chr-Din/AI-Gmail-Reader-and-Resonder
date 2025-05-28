@@ -1,6 +1,3 @@
-# File: responder.py
-
-# MANUAL: You can modify templates below to include dynamic info or signatures
 reply_templates = {
     'leave': "Hi, your leave request has been received. We'll get back to you soon.",
     'complaint': "Hi, thank you for the feedback. We're reviewing your complaint.",
@@ -13,10 +10,7 @@ def generate_reply(intent, sender_name):
     display_name = sender_name.split('<')[0].strip()
     return f"Dear {display_name},\n\n{reply_templates.get(intent, reply_templates['general'])}"
 
-# File: responder.py (continued)
-
 import base64
-
 def send_reply(service, email, reply_text):
     # Encode message to base64
     message = {

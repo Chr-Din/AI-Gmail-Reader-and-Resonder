@@ -1,6 +1,3 @@
-# File: main.py
-
-
 from email_reader import get_gmail_service, get_unread_emails
 from classifier import classify_email
 from responder import generate_reply, send_reply

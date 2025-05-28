@@ -1,5 +1,3 @@
-# File: email_reader.py
-
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
@@ -11,16 +9,10 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 
 def get_gmail_service():
     creds = None
-    # MANUAL: Place 'credentials.json' from Google Developer Console in project root
     flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
     creds = flow.run_local_server(port=0)  # Opens browser for OAuth
     service = build('gmail', 'v1', credentials=creds)
     return service
-  
-  # File: email_reader.py (continued)
-
-
-
 def get_unread_emails(service):
     # Fetch unread emails from inbox
     result = service.users().messages().list(userId='me', labelIds=['INBOX'], q="is:unread").execute()

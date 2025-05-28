@@ -1,11 +1,8 @@
-# File: logger.py
-
 import sqlite3
 import os
 from datetime import datetime
 
 def init_db():
-    # MANUAL: Ensure 'logs/' folder exists or change path below
     os.makedirs("logs",exist_ok=True)
     conn = sqlite3.connect("logs/emails.db")
     cursor = conn.cursor()
